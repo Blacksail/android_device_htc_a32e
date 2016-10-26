@@ -133,8 +133,7 @@ PRODUCT_PACKAGES += \
     tinymix \
     libqcomvisualizer \
     libqcompostprocbundle \
-    libqcomvoiceprocessing \
-    libsrsprocessing
+    libqcomvoiceprocessing
 
 # Camera
 PRODUCT_PACKAGES += \
