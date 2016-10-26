@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcompostprocbundle \
     libqcomvoiceprocessing
+#    libsrsprocessing
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -183,21 +184,37 @@ PRODUCT_PACKAGES += \
 
 # INIT
 PRODUCT_PACKAGES += \
-    init.target.rc \
-    init.qcom.bt.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
+    init.class_main.sh \
+    init.gyrocali.sh \
+    init.hosd.common.rc \
+    init.hosd.htc_a32e.rc \
+    init.hosd.usb.rc \
+    init.hosd.fusion.usb.rc \
+    init.htc.common.rc \
+    init.htc.usb.rc \
+    init.htc_a32e.rc \
+    init.htc_a32e.usb.rc \
+    init.htc.storage.rc \
+    init.mdm.sh \
+    init.network.sh \
+    init.power.rc \
+    ueventd.qcom.rc \
+    init.qcom.bms.sh \
+    init.qcom.class.core.sh\
+    init.qcom.early.boot.sh \
+    init.qcom.factory.rc \
+    init.qcom.zram.sh \
+    init.qcom.firmware_links.sh \
     init.qcom.rc \
     init.qcom.sh \
-    init.class_main.sh \
-    vold.fstab \
-    init.qcom.usb.rc \
+    init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh \
-    ueventd.qcom.rc \
-    fstab.qcom \
-    init.qcom.zram.sh \
-    init.qcom.bms.sh \
-    init.qcom.fm.sh
+    init.recovery.common.rc \
+    init.recovery.htc_a32e.rc \
+    init.usb.rc \
+    init.usbdiag.sh \
+    init.zygote32.rc \
+    ueventd.qcom.rc
 
 # IPv6
 PRODUCT_PACKAGES += \
