@@ -17,5 +17,4 @@ Display | 720 x 1280 pixels, 5.0" / 5.5"
 Rear Camera  | 8.0 MP, LED flash
 Front Camera | 2.0 MP
 
-
-# android_device_huawei_y6
+# android_device_htc_a32e
