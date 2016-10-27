@@ -16,31 +16,37 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-ro.telephony.default_network=9
+ro.telephony.default_network=5
 
 debug.sf.hw=1
 debug.egl.hw=1
-persist.hwc.mdpcomp.enable=true
+debug.composition.type=dyn
+debug.hwc.dynThreshold=2.5
 debug.mdpcomp.logs=0
+ro.hwui.renderer.disable_opaque=true
 dalvik.vm.heapsize=36m
-dalvik.vm.zygotemaxfailedboots=5
+
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-debug.enable.sglscale=1
 
 #enable dirty rect
 debug.sf.swaprect=1
 #enable app buffer composition
 debug.sf.hwc.canUseABC=1
+# disable vsync for cpu render apps
+debug.cpurend.vsync=false
+#allow gpu to render widevine level3
+persist.gralloc.cp.level3=1
 
-#enable gpu perf hint
-sys.hwc.gpu_perf_mode=1
 #ro.hdmi.enable=true
 #tunnel.decode=true
 #tunnel.audiovideo.decode=true
 #lpa.decode=false
 #lpa.use-stagefright=true
 #persist.speaker.prot.enable=false
+
+# system props for inscreen virtual key
+qemu.hw.mainkeys=0
 
 #
 # system props for the cne module
@@ -86,26 +92,33 @@ ro.opengles.version=196608
 
 # System property for cabl
 # disable cabl for we enable cabc on panel side
-ro.qualcomm.cabl=0
+ro.qualcomm.cabl=2
 
 # System property for QDCM
 persist.tuning.qdcm=1
 
+# System property for Screen Color
+ro.qcom.screencolor=1
+
 #
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
-telephony.lteOnCdmaDevice=1
-persist.data.target=dpm1
-persist.radio.no_cons_man_roam=1
-
-#
-# System props for bluetooth
-# System prop to turn on hfp client
-bluetooth.hfp.client=1
+# +SSR_RIL : set according to SKU
+# telephony.lteOnCdmaDevice=1
+# -SSD_RIL
 
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
+# ro.storage_structure: define the storage structure of this project
+# FUSE: 0x8, FAT: 0x4, SD: 0x2, INS: 0x1
+# Example: If the project has FUSE with SD card, the value should be defined as 10 (dec)
+ro.storage_structure = 10
+
+# ro.storage_encryption_type: define the storage encryption type of this project
+# not support encryption: 0x0 block level: 0x1 file level: 0x2
+ro.storage_encryption_type = 2
+
 
 #
 # System property for Camera
@@ -116,7 +129,7 @@ persist.camera.longshot.stages=1
 #
 # dirty ratio value when enable ums
 #
-ro.sys.umsdirtyratio=2
+ro.sys.umsdirtyratio=20
 
 #
 #snapdragon value add features
@@ -156,7 +169,7 @@ rec.playback.conc.disabled=true
 #Set composition for USB
 persist.sys.usb.config=diag,serial_smd,rmnet_qti_bam,adb
 #Set read only default composition for USB
-ro.sys.usb.default.config=diag,serial_smd,rmnet_qti_bam,adb
+#ro.sys.usb.default.config=diag,serial_smd,rmnet_qti_bam,adb
 
 # set max background services
 ro.config.max_starting_bg=8
@@ -190,6 +203,12 @@ ro.sys.fw.trim_enable_memory=1073741824
 # set cutoff voltage to 3200mV
 ro.cutoff_voltage_mv=3200
 
+#To check core ctl presence
+ro.core_ctl_present=1
+
+#Factory Reset Protection
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
 #min/max cpu in core control
 ro.core_ctl_min_cpu=2
 ro.core_ctl_max_cpu=4
@@ -198,6 +217,12 @@ ro.core_ctl_max_cpu=4
 ro.sys.fw.bservice_enable=true
 ro.sys.fw.bservice_limit=5
 ro.sys.fw.bservice_age=5000
+#
+# from device/htc/common/system.prop
+#
+#
+# system.prop for HTC common
+#
 
 # Set mainkeys to 0 for no hardware keys
 qemu.hw.mainkeys=0
